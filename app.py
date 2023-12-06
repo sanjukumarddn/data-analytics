@@ -7,6 +7,27 @@ import time
 timestr = time.strftime("%Y%m%d-%H%M%S")
 import pandas as pd 
 
+df = pd.read_csv('iris.csv')
+
+# Display the Iris dataset
+st.markdown('<h1 style="color:orange;">Iris Dataset </h1>', unsafe_allow_html=True)
+st.write('**This is iris dataset**')
+st.write(df)
+
+st.markdown('<h1 style="color:green;">Charts View </h1>', unsafe_allow_html=True)
+st.write('**This a multiple charts use function. It is very simple. you select chart and visualize data in liked chart.**')
+# # Select chart type
+chart_type = st.selectbox('Select Chart Type', ['Bar Chart', 'Line Chart', 'Scatter Plot'])
+
+
+if chart_type == 'Bar Chart':
+    fig = px.bar(df, x='sepal_length', y='sepal_width', title='Bar Chart')
+elif chart_type == 'Line Chart':
+    fig = px.line(df, x='sepal_length', y='sepal_width', title='Line Chart')
+elif chart_type == 'Scatter Plot':
+    fig = px.scatter(df, x='sepal_length', y='sepal_width', title='Scatter Plot')
+st.plotly_chart(fig)
+
 
 
 # Fxn
