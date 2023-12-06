@@ -1,6 +1,6 @@
 import streamlit as st 
 import streamlit.components as stc
-
+import plotly.express as px
 # Utils
 import base64 
 import time
